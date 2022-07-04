@@ -12,3 +12,26 @@ body {
   align-items: center;
   font-family: "Poppins", sans-serif;
 }
+
+.container {
+  background: white;
+  width: 100%;
+  max-width: 300px;
+  padding: 2rem;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  transform: scale(1.4);
+  box-shadow: 0px 8px 10px hsl(216, 65.2%, 64.9%);
+}
+
+.home,
+.notification,
+.message {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1rem;
+}
