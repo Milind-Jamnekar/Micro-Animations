@@ -1,9 +1,11 @@
 const tl = gsap.timeline({ defualt: { duration: 0.75, ease: "Power3.out" } });
 
-tl.fromTo(".container", { scale: 1 }, { scale: 1.4 });
+gsap.fromTo(".container", { scale: 1 }, { scale: 1.4 });
 
 // Home Button animation
+const notification = document.querySelector(".notification");
 const home = document.querySelector(".home");
+const message = document.querySelector(".message");
 
 gsap.set(".feather", { scale: 0, transformOrigin: "center" });
 home.addEventListener("click", () => {
@@ -26,7 +28,6 @@ home.addEventListener("click", () => {
 });
 
 //Notification button animation
-const notification = document.querySelector(".notification");
 gsap.set(".bell", { transformOrigin: "top center" });
 gsap.set(".ringer", { transformOrigin: "top center" });
 gsap.set(".wave", { opacity: 0, transformOrigin: "bottom center" });
@@ -48,4 +49,19 @@ notification.addEventListener("click", () => {
     { scale: 0, opacity: 1 },
     { scale: 1.5, opacity: 0, duration: 1 }
   );
+});
+
+//Message button animation
+gsap.set(".flap", { transformOrigin: "top center" });
+
+message.addEventListener("click", () => {
+  tl.fromTo(".messages-svg", { scale: 1 }, { scale: 0.9 });
+  tl.fromTo(".flap", { scale: 1 }, { scale: -1 }, "<50%");
+  tl.fromTo(".messages-svg", { scale: 0.9 }, { scale: 1 }, "<50%");
+  tl.fromTo(
+    ".note",
+    { y: 0, opacity: 1 },
+    { y: -40, opacity: 0, duration: 0.75 }
+  );
+  tl.to(".flap", { scale: 1 }, "<50%");
 });
